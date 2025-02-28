@@ -1,0 +1,67 @@
+import React from "react";
+import { motion } from "framer-motion";
+
+const scenarios = [
+  {
+    title: "What if humans could fly?",
+    description:
+      "Explore the implications of human flight on transportation, architecture, and society."
+  },
+  {
+    title: "What if money didn’t exist?",
+    description:
+      "Dive into a world without currency and discover how trade and society might function."
+  },
+  {
+    title: "What if Earth stopped spinning?",
+    description:
+      "Uncover the catastrophic effects on climate, gravity, and human survival."
+  }
+];
+
+const App = () => {
+  return (
+    <div className="p-8 bg-gradient-to-b from-blue-100 to-indigo-200 min-h-screen">
+      <header className="text-center mb-10">
+        <h1 className="text-5xl font-bold text-indigo-800 mb-4">What If...</h1>
+        <p className="text-xl text-gray-700">
+          Explore fascinating hypothetical scenarios and their potential outcomes.
+        </p>
+      </header>
+
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        {scenarios.map((scenario, index) => (
+          <motion.div
+            key={index}
+            className="bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transform transition duration-300 hover:scale-105 cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+          >
+            <h2 className="text-2xl font-semibold text-indigo-800 mb-3">
+              {scenario.title}
+            </h2>
+            <p className="text-gray-600">{scenario.description}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <footer className="text-center mt-10 text-gray-600">
+        <p>
+          Created with ❤️ by <strong>Your Name</strong>. Explore more at
+          <a
+            href="https://yourwebsite.com"
+            className="text-indigo-600 hover:underline ml-1"
+          >
+            yourwebsite.com
+          </a>
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
